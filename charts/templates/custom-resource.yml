@@ -1,0 +1,10 @@
+apiVersion: k6.io/v1alpha1
+kind: TestRun
+metadata:
+  name: {{ .Values.k6.name }}
+spec:
+  parallelism: {{ .Values.k6.parallelism }}
+  script:
+    configMap:
+      name: {{ .Values.TestRun.name }}
+      file: {{ .Values.TestRun.test_script }}
